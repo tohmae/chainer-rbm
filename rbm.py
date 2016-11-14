@@ -197,7 +197,7 @@ class RBM(chainer.Chain):
 def test_rbm(training_epochs=1000):
 
     binomial = 1 
-    model = RBM(6,3,binomial=binomial)
+    model = RBM(6,2,binomial=binomial)
 #    print("W="  + str(model.l.W.data))
 #    print("a="  + str(model.l.a.data))
 #    print("b="  + str(model.l.b.data))
@@ -210,8 +210,9 @@ def test_rbm(training_epochs=1000):
                       ,dtype=xp.float32)
 
 #    optimizer = O.Adam()
-#    optimizer = O.SGD(lr=0.1)
-    optimizer = O.MomentumSGD(lr=0.01, momentum=0.5)
+    optimizer = O.SGD(lr=0.1)
+#    optimizer = O.MomentumSGD(lr=0.01, momentum=0.5)
+
     optimizer.setup(model)
 
     for i in range(training_epochs):
